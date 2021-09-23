@@ -1,1 +1,14 @@
---- {}
+---
+profile_gitlab::firewall::http_allowed_subnets:
+  "public": "0.0.0.0/0"
+  #"NCSA private": "172.24.0.0/13"
+  #"NCSA private old": "10.142.0.0/16"
+  #"NCSA public": "141.142.0.0/16"
+profile_gitlab::firewall::https_allowed_subnets:
+  "public": "0.0.0.0/0"
+  #"NCSA private": "172.24.0.0/13"
+  #"NCSA private old": "10.142.0.0/16"
+  #"NCSA public": "141.142.0.0/16"
+  #"SSLlabs testing": "64.41.200.96/28"
+profile_gitlab::ssh::allowed_subnets:
+  - "0.0.0.0/0"  # Public

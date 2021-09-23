@@ -5,5 +5,8 @@
 class profile_gitlab {
 
   include ::gitlab
+  include ::profile_gitlab::backup
+  include ::profile_gitlab::firewall
+  include ::profile_gitlab::ssh
 
 }
