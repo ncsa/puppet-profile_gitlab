@@ -10,8 +10,9 @@ class profile_gitlab::ssh (
 ) {
 
   $params = {
-    'PubkeyAuthentication'  => 'yes',
     'AuthenticationMethods' => 'publickey',
+    'MaxAuthTries'          => '6',
+    'PubkeyAuthentication'  => 'yes',
   }
 
   ::sshd::allow_from{ 'sshd allow git user for GitLab':
