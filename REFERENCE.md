@@ -7,9 +7,9 @@
 ### Classes
 
 * [`profile_gitlab`](#profile_gitlab): Install and configure GitLab service
-* [`profile_gitlab::backup`](#profile_gitlabbackup): Configure GitLab backups
-* [`profile_gitlab::firewall`](#profile_gitlabfirewall): Open GitLab ports in the firewall
-* [`profile_gitlab::ssh`](#profile_gitlabssh): Configure ssh access to GitLab for git clients
+* [`profile_gitlab::backup`](#profile_gitlab--backup): Configure GitLab backups
+* [`profile_gitlab::firewall`](#profile_gitlab--firewall): Open GitLab ports in the firewall
+* [`profile_gitlab::ssh`](#profile_gitlab--ssh): Configure ssh access to GitLab for git clients
 
 ## Classes
 
@@ -25,7 +25,7 @@ Install and configure GitLab service
 include profile_gitlab
 ```
 
-### <a name="profile_gitlabbackup"></a>`profile_gitlab::backup`
+### <a name="profile_gitlab--backup"></a>`profile_gitlab::backup`
 
 Configure GitLab backups
 
@@ -37,7 +37,7 @@ Configure GitLab backups
 include profile_gitlab::backup
 ```
 
-### <a name="profile_gitlabfirewall"></a>`profile_gitlab::firewall`
+### <a name="profile_gitlab--firewall"></a>`profile_gitlab::firewall`
 
 Open GitLab ports in the firewall
 
@@ -53,22 +53,22 @@ include profile_gitlab::firewall
 
 The following parameters are available in the `profile_gitlab::firewall` class:
 
-* [`http_allowed_subnets`](#http_allowed_subnets)
-* [`https_allowed_subnets`](#https_allowed_subnets)
+* [`http_allowed_subnets`](#-profile_gitlab--firewall--http_allowed_subnets)
+* [`https_allowed_subnets`](#-profile_gitlab--firewall--https_allowed_subnets)
 
-##### <a name="http_allowed_subnets"></a>`http_allowed_subnets`
+##### <a name="-profile_gitlab--firewall--http_allowed_subnets"></a>`http_allowed_subnets`
 
 Data type: `Hash[String,String]`
 
 Subnets allowed access via http port
 
-##### <a name="https_allowed_subnets"></a>`https_allowed_subnets`
+##### <a name="-profile_gitlab--firewall--https_allowed_subnets"></a>`https_allowed_subnets`
 
 Data type: `Hash[String,String]`
 
 Subnets allowed access via https port
 
-### <a name="profile_gitlabssh"></a>`profile_gitlab::ssh`
+### <a name="profile_gitlab--ssh"></a>`profile_gitlab::ssh`
 
 Configure ssh access to GitLab for git clients
 
@@ -84,11 +84,11 @@ include profile_gitlab::ssh
 
 The following parameters are available in the `profile_gitlab::ssh` class:
 
-* [`allowed_subnets`](#allowed_subnets)
+* [`allowed_subnets`](#-profile_gitlab--ssh--allowed_subnets)
 
-##### <a name="allowed_subnets"></a>`allowed_subnets`
+##### <a name="-profile_gitlab--ssh--allowed_subnets"></a>`allowed_subnets`
 
-Data type: `Array[ String ]`
+Data type: `Array[String]`
 
 List of subnets allowed SSH access
 

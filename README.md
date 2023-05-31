@@ -35,6 +35,7 @@ The goal is that no paramters are required to be set. The default paramters shou
 ## Dependencies
 
 - [ncsa/pam_access](https://github.com/ncsa/puppet-pam_access)
+- [ncsa/profile_backup](https://github.com/ncsa/puppet-profile_backup)
 - [ncsa/sshd](https://github.com/ncsa/puppet-sshd)
 - [puppet/gitlab](https://forge.puppet.com/modules/puppet/gitlab)
 - [puppetlabs/firewall](https://forge.puppet.com/modules/puppetlabs/firewall)

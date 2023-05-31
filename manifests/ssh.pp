@@ -6,19 +6,18 @@
 # @example
 #   include profile_gitlab::ssh
 class profile_gitlab::ssh (
-  Array[ String ] $allowed_subnets,
+  Array[String] $allowed_subnets,
 ) {
-
   $params = {
     'AuthenticationMethods' => 'publickey',
     'MaxAuthTries'          => '6',
     'PubkeyAuthentication'  => 'yes',
   }
 
-  ::sshd::allow_from{ 'sshd allow git user for GitLab':
+  ::sshd::allow_from { 'sshd allow git user for GitLab':
     hostlist                => $allowed_subnets,
-    users                   => [ 'git' ],
-    groups                  => [ 'git' ],
+    users                   => ['git'],
+    groups                  => ['git'],
     additional_match_params => $params,
   }
 
@@ -48,5 +47,4 @@ class profile_gitlab::ssh (
     permission => '+',
     position   => '-1',
   }
-
 }
