@@ -3,24 +3,30 @@
 # @example
 #   include profile_gitlab::backup
 class profile_gitlab::backup {
+  if ( lookup('profile_backup::client::enabled') ) {
+    include profile_backup::client
 
-  cron { 'GITLAB DAILY BACKUPS':
-    command => '/opt/gitlab/bin/gitlab-backup create CRON=1',
-    user    => 'root',
-    hour    => 4,
-    minute  => 0,
-    weekday => [
-      '2',
-      '4',
-      '6',
-    ],
+    profile_backup::client::add_job { 'profile_gitlab':
+      paths             => [
+        '/etc/gitlab/config_backup',
+        '/var/opt/gitlab/backups',
+      ],
+      prehook_commands  => [
+        '/opt/gitlab/bin/gitlab-backup create CRON=1',
+      ],
+      posthook_commands => [
+        "find /etc/gitlab/config_backup \\( -name '*.tar' \\) -mtime +30 -type f -exec rm -rf {} \\;",
+        "find /var/opt/gitlab/backups \\( -name '*.tar' \\) -mtime +2 -type f -exec rm -rf {} \\;",
+      ],
+    }
+
+    # REMOVE OLD BACKUP CRONS FROM <= v0.1.1 OF THIS MODULE
+    # THIS LOGIC CAN BE REMOVED IN FUTURE VERSIONS OF THIS MODULE
+    cron { 'GITLAB DAILY BACKUPS':
+      ensure => 'absent',
+    }
+    cron { 'GITLAB CLEANUP BACKUPS':
+      ensure => 'absent',
+    }
   }
-
-  $backup_paths = '/etc/gitlab/config_backup/ /var/opt/gitlab/backups/'
-  cron { 'GITLAB CLEANUP BACKUPS':
-    command => "/usr/bin/find ${backup_paths} \\( -name '*.tar' \\) -mtime +7 -type f -exec rm -rf {} \\;",
-    user    => 'root',
-    special => 'daily',
-  }
-
 }
