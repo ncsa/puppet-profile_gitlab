@@ -8,7 +8,7 @@ class profile_gitlab::backup {
 
     profile_backup::client::add_job { 'profile_gitlab':
       paths             => [
-        '/etc/gitlab/config_backup',
+        '/etc/gitlab',
         '/var/opt/gitlab/backups',
       ],
       prehook_commands  => [
