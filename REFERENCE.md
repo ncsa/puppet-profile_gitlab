@@ -37,6 +37,32 @@ Configure GitLab backups
 include profile_gitlab::backup
 ```
 
+#### Parameters
+
+The following parameters are available in the `profile_gitlab::backup` class:
+
+* [`paths`](#-profile_gitlab--backup--paths)
+* [`posthook_commands`](#-profile_gitlab--backup--posthook_commands)
+* [`prehook_commands`](#-profile_gitlab--backup--prehook_commands)
+
+##### <a name="-profile_gitlab--backup--paths"></a>`paths`
+
+Data type: `Array[String]`
+
+List of paths (locations to files or directories) to be backed up.
+
+##### <a name="-profile_gitlab--backup--posthook_commands"></a>`posthook_commands`
+
+Data type: `Array[String]`
+
+List of commands to run after the paths are backed up.
+
+##### <a name="-profile_gitlab--backup--prehook_commands"></a>`prehook_commands`
+
+Data type: `Array[String]`
+
+List of commands to run before the paths are backed up.
+
 ### <a name="profile_gitlab--firewall"></a>`profile_gitlab::firewall`
 
 Open GitLab ports in the firewall
