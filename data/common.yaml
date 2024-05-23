@@ -1,4 +1,12 @@
 ---
+profile_gitlab::backup::paths:
+  - "/etc/gitlab"
+  - "/var/opt/gitlab/backups"
+profile_gitlab::backup::posthook_commands:
+  - "find /etc/gitlab/config_backup \\( -name '*.tar' \\) -mtime +30 -type f -exec rm -rf {} \\;"
+  - "find /var/opt/gitlab/backups \\( -name '*.tar' \\) -mtime +2 -type f -exec rm -rf {} \\;"
+profile_gitlab::backup::prehook_commands:
+  - "/opt/gitlab/bin/gitlab-backup create CRON=1"
 profile_gitlab::firewall::http_allowed_subnets:
   "public": "0.0.0.0/0"
   #"NCSA private": "172.24.0.0/13"
