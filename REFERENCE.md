@@ -10,6 +10,7 @@
 * [`profile_gitlab::backup`](#profile_gitlab--backup): Configure GitLab backups
 * [`profile_gitlab::firewall`](#profile_gitlab--firewall): Open GitLab ports in the firewall
 * [`profile_gitlab::ssh`](#profile_gitlab--ssh): Configure ssh access to GitLab for git clients
+* [`profile_gitlab::syslog`](#profile_gitlab--syslog): Configure syslog related to GitLab
 
 ## Classes
 
@@ -117,4 +118,28 @@ The following parameters are available in the `profile_gitlab::ssh` class:
 Data type: `Array[String]`
 
 List of subnets allowed SSH access
+
+### <a name="profile_gitlab--syslog"></a>`profile_gitlab::syslog`
+
+Configure syslog related to GitLab
+
+#### Examples
+
+##### 
+
+```puppet
+include profile_gitlab::syslog
+```
+
+#### Parameters
+
+The following parameters are available in the `profile_gitlab::syslog` class:
+
+* [`path`](#-profile_gitlab--syslog--path)
+
+##### <a name="-profile_gitlab--syslog--path"></a>`path`
+
+Data type: `String`
+
+Path to GitLab logs
 

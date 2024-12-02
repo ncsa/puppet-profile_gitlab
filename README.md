@@ -38,15 +38,10 @@ The goal is that no paramters are required to be set. The default paramters shou
 - [ncsa/profile_backup](https://github.com/ncsa/puppet-profile_backup)
 - [ncsa/sshd](https://github.com/ncsa/puppet-sshd)
 - [puppet/gitlab](https://forge.puppet.com/modules/puppet/gitlab)
+- [puppet/rsyslog](https://forge.puppet.com/modules/puppet/rsyslog)
 - [puppetlabs/firewall](https://forge.puppet.com/modules/puppetlabs/firewall)
 
 
 ## Reference
-
-### class profile_gitlab::firewall (
--  Hash[String,String] $http_allowed_subnets,
--  Hash[String,String] $https_allowed_subnets,
-### class profile_gitlab::ssh (
--  Array[ String ] $allowed_subnets,
 
 See: [REFERENCE.md](REFERENCE.md)
