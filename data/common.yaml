@@ -20,3 +20,4 @@ profile_gitlab::firewall::https_allowed_subnets:
   #"SSLlabs testing": "64.41.200.96/28"
 profile_gitlab::ssh::allowed_subnets:
   - "0.0.0.0/0"  # Public
+profile_gitlab::syslog::path: "/var/log/gitlab"
